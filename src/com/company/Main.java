@@ -8,12 +8,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try {
-            // Creating map and files
 
             //File startingFolder = new File("FileCrawler");
             File f1 = new File("FileCrawler/test1.txt");
-
-
 
             Scanner input = new Scanner(System.in);
             System.out.print("Please enter a word or a number: ");
@@ -28,8 +25,6 @@ public class Main {
     }
 
     public static void printInfo(File file) {
-        // Om det är en vanlig fil: Skriv ut namnet på filen
-        // Om det är en mapp: Skriv ut sökvägen på mappen, och gå in i mappen
 
         if (file.isFile()) {
             System.out.println("Fil: " + file.getName());
@@ -52,14 +47,13 @@ public class Main {
 
     public static void goThroughAllFoldersAndFiles(String word, File file) {
 
-
+        // behöver kodas...
 
     }
 
     public static void printPathIfWordIsInFile(String word, File file) {
-        try {
 
-// print path if word = input from scanner and print message like "Successful"
+        try {
             Scanner sc = new Scanner(file);
             while(sc.hasNext()) {
 
@@ -67,7 +61,6 @@ public class Main {
                     System.out.println("Your word is inside this file: " + file.getCanonicalPath());
                 }
             }
-
         } catch (Exception e) {
             System.out.print("Error while searching through all files!");
             e.printStackTrace();
