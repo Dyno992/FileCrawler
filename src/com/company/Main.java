@@ -3,59 +3,27 @@ package com.company;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
         try {
-            // Creting map and files
+            // Creating map and files
 
-            File startingFolder = new File("FileCrawler");
+            //File startingFolder = new File("FileCrawler");
             File f1 = new File("FileCrawler/test1.txt");
-            File f2 = new File("FileCrawler/test2.txt");
-            File f3 = new File("FileCrawler/test3.txt");
-            File f4 = new File("FileCrawler/test4.txt");
 
-            startingFolder.mkdir();
-            for (File file : Arrays.asList(f1, f2, f3, f4)) {
-                file.createNewFile();
-            }
 
-            // Writing into files
 
-            FileWriter fw1 = new FileWriter(f1);
-            fw1.write("Hello");
-            fw1.flush();
-            fw1.close();
+            Scanner input = new Scanner(System.in);
+            System.out.print("Please enter a word or a number: ");
+            String word = input.nextLine();
 
-            FileWriter fw2 = new FileWriter(f2);
-            fw2.write("How");
-            fw2.flush();
-            fw2.close();
+            printPathIfWordIsInFile(word, f1);
 
-            FileWriter fw3 = new FileWriter(f3);
-            fw3.write("Are");
-            fw3.flush();
-            fw3.close();
-
-            FileWriter fw4 = new FileWriter(f4);
-            fw4.write("You?");
-            fw4.flush();
-            fw4.close();
-
-            System.out.println("\n\nThe folder has been created in " + startingFolder.getCanonicalPath());
-            System.out.println("Contains: " + Arrays.toString(startingFolder.list()));
-            System.out.println("Folder name: " + startingFolder.getName());
-            System.out.println("Directory?: " + startingFolder.isDirectory());
-            System.out.println("Readable: " + startingFolder.canRead());
-            System.out.println("Writable: " + startingFolder.canWrite());
-            System.out.println("Executable: " + startingFolder.canExecute());
-            System.out.println("-------");
-            System.out.println();
-
-            printInfo(startingFolder);
         } catch (Exception e) {
             System.out.println("Error during creation!");
+            e.printStackTrace();
         }
     }
 
@@ -77,7 +45,32 @@ public class Main {
 
             } catch (Exception e) {
                 System.out.println("Oops");
+                e.printStackTrace();
             }
+        }
+    }
+
+    public static void goThroughAllFoldersAndFiles(String word, File file) {
+
+
+
+    }
+
+    public static void printPathIfWordIsInFile(String word, File file) {
+        try {
+
+// print path if word = input from scanner and print message like "Successful"
+            Scanner sc = new Scanner(file);
+            while(sc.hasNext()) {
+
+                if (word.equals (sc.next())) {
+                    System.out.println("Your word is inside this file: " + file.getCanonicalPath());
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.print("Error while searching through all files!");
+            e.printStackTrace();
         }
     }
 }
