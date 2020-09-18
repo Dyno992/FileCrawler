@@ -1,8 +1,6 @@
 package com.company;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +11,7 @@ public class Main {
             File f1 = new File("FileCrawler/test1.txt");
 
             Scanner input = new Scanner(System.in);
-            System.out.print("Please enter a word or a number: ");
+            System.out.print("\n\nPlease enter a word or a number: ");
             String word = input.nextLine();
 
             printPathIfWordIsInFile(word, f1);
@@ -43,12 +41,6 @@ public class Main {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void goThroughAllFoldersAndFiles(String word, File file) {
-
-        // behöver kodas...
-
     }
 
     public static void printPathIfWordIsInFile(String word, File file) {
