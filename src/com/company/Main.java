@@ -37,7 +37,7 @@ public class Main {
                 }
 
             } catch (Exception e) {
-                System.out.println("Oops");
+                System.out.println("Error" + file.getAbsolutePath());
                 e.printStackTrace();
             }
         }
@@ -54,7 +54,7 @@ public class Main {
                 }
             }
         } catch (Exception e) {
-            System.out.print("Error! Your word isn't in this file!");
+            System.out.print("Error! " + file.getAbsolutePath());
             e.printStackTrace();
         }
     }
