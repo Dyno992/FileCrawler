@@ -22,7 +22,7 @@ public class Main {
         }
     }
 
-    private static void printInfo(File file) {
+    public static void printInfo(File file) {
 
         if (file.isFile()) {
             System.out.println("Fil: " + file.getName());
@@ -54,7 +54,7 @@ public class Main {
                 }
             }
         } catch (Exception e) {
-            System.out.print("Error! Your word isn't in this file");
+            System.out.print("Error while searching through all files!");
             e.printStackTrace();
         }
     }
