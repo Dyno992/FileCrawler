@@ -54,7 +54,7 @@ public class Main {
                 }
             }
         } catch (Exception e) {
-            System.out.print("Error while searching through all files!");
+            System.out.print("Error! Your word isn't in this file!");
             e.printStackTrace();
         }
     }
