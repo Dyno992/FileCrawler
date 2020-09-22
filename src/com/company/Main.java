@@ -7,13 +7,14 @@ public class Main {
     public static void main(String[] args) {
         try {
 
-            File f1 = new File("src/com/company/FileCrawlerMap");
+            //File startingFolder = new File("FileCrawler");
+            File f1 = new File("FileCrawler/test1.txt");
 
             Scanner input = new Scanner(System.in);
             System.out.print("\n\nPlease enter a word or a number: ");
-            String word = input.next();
+            String word = input.nextLine();
 
-            printInfo(word, f1);
+            printPathIfWordIsInFile(word, f1);
 
         } catch (Exception e) {
             System.out.println("Error during creation!");
@@ -21,19 +22,18 @@ public class Main {
         }
     }
 
-    public static void printInfo(String word, File file) {
+    public static void printInfo(File file) {
 
         if (file.isFile()) {
-
-            printPathIfWordIsInFile(word, file);
-
+            System.out.println("Fil: " + file.getName());
         } else if (file.isDirectory()) {
             try {
+                System.out.println("Mapp: " + file.getCanonicalPath());
 
                 File[] folderContents = file.listFiles();
                 for (int i = 0; i < folderContents.length; i++) {
                     File f = folderContents[i];
-                    printInfo(word, f);
+                    printInfo(f);
                 }
 
             } catch (Exception e) {
